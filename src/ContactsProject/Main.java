@@ -1,11 +1,19 @@
 package ContactsProject;
 
+
+import java.io.IOException;
+
 public class Main {
-    //nameSearch method
+    public static void main(String[] args) throws IOException {
+        ContactsFileCreation.ContactsFileCreate();
+        ShowAll.showAllContacts();
 
-    //addNew method
+        //nameSearch method
 
-    //showAll method
+        //addNew method
 
-    //deleteContact method
+        //showAll method
+
+        //deleteContact method
+    }
 }
