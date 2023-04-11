@@ -1,20 +1,21 @@
 package ContactsProject;
 
+import java.util.List;
+import java.util.Scanner;
+
 public class AddNew extends Main{
-    Input userInput = new Input();
-    Contacts newContact = new Contacts("String name", "String number") {
-        //overriding name
-        @Override
-        public String getName() {
-            return super.getName();
-        }
-
-        //overriding number
-        @Override
-        public String getNumber() {
-            return super.getNumber();
-        }
+    List<String> contactsNameList = ContactsFileCreation.getContactNameList();
+    List<String> contactsNumberList = ContactsFileCreation.getContactNumberList();
 
 
-    };
+    System.out.println("Enter name/number");
+    Scanner myScanner = new Scanner(System.in);
+    String user = myScanner.nextLine();
+
+
+    contactsNameList.add(user);
+    user = myScanner.nextLine();
+    contactsNumberList.add(user);
+
+
 }
