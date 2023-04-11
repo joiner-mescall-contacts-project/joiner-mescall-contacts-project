@@ -11,8 +11,9 @@ import java.util.List;
 public class AddNew{
     private static final String contactFilePath = "data/contacts.txt";
 
+
     public static void addContact(String name, String number) throws IOException {
-        // Add the new contact to the in-memory lists
+        // Add the new contact to the file
         ContactsFileCreation.getContactNameList().add(name);
         ContactsFileCreation.getContactNumberList().add(number);
 

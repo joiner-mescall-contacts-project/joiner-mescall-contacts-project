@@ -37,20 +37,6 @@ public class ContactsFileCreation {
             contactsNumberList.add(lines.get(i + 1));
         }
 
-
-
-        //checks the file to compare name list with number list
-        //if they match its good if it doesn't it checks which is bigger than the other
-        // it removes it until it matches
-        //this also helps with manual delete of file
-
-        if (contactsNameList.size() != contactsNumberList.size()) {
-            if (contactsNameList.size() > contactsNumberList.size()) {
-                contactsNameList.remove(contactsNameList.size() - 1);
-            } else {
-                contactsNumberList.remove(contactsNumberList.size() - 1);
-            }
-        }
     }
 
     public static List<String> getContactNameList() {
