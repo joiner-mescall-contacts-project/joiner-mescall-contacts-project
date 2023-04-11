@@ -13,44 +13,52 @@ import static java.nio.file.Files.readAllLines;
 
 public class ContactsFileCreation {
 
-
-    private static List<String> contactsNameList =new ArrayList<>();
+    private static final String contactFilePath = "data/contacts.txt";
+    private static List<String> contactsNameList = new ArrayList<>();
     private static List<String> contactsNumberList = new ArrayList<>();
 
-
-public static void ContactsFileCreate () throws IOException {
+    public static void ContactsFileCreate() throws IOException {
         String newDirectory = "data";
-        String newFile = "data/contacts.txt";
-
+        Path filePath = Paths.get(contactFilePath);
+        //adds the file if it doesn't exist
         if (Files.notExists(Path.of(newDirectory))) {
             Files.createDirectory(Path.of(newDirectory));
-            Files.createFile(Path.of(newFile));
-        } else {
-            System.out.println("Path already exists in project.");
+            Files.createFile(filePath);
+        }
+
+        // Read the Files existing information
+        List<String> lines = Files.readAllLines(filePath);
+
+
+        // looping by two since the name and number make one person and the for loop can be used to
+        // call or pull on a certain this inside
+        for (int i = 0; i < lines.size(); i += 2) {
+            contactsNameList.add(lines.get(i));
+            contactsNumberList.add(lines.get(i + 1));
         }
 
 
-        Path filePath = Paths.get("./data", "contacts.txt");
 
+        //checks the file to compare name list with number list
+        //if they match its good if it doesn't it checks which is bigger than the other
+        // it removes it until it matches
+        //this also helps with manual delete of file
 
-        Files.readAllLines(filePath);
-
-
-         //Files.write(filePath, contactsNameList);
-        //Files.write(filePath, contactsNumberList, StandardOpenOption.APPEND);
+        if (contactsNameList.size() != contactsNumberList.size()) {
+            if (contactsNameList.size() > contactsNumberList.size()) {
+                contactsNameList.remove(contactsNameList.size() - 1);
+            } else {
+                contactsNumberList.remove(contactsNumberList.size() - 1);
+            }
+        }
     }
 
-
-
-
-    public static List<String> getContactNameList(){
+    public static List<String> getContactNameList() {
         return contactsNameList;
     }
 
-    public static List<String> getContactNumberList(){
+    public static List<String> getContactNumberList() {
         return contactsNumberList;
     }
-
-
 
 }
