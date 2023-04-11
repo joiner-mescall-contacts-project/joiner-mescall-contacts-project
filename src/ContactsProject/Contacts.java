@@ -6,6 +6,8 @@ abstract class Contacts implements ContactsInterface{
     //person name
     //person number
 
+    Input userInput = new Input();
+
     private String name;
 
     private String number;

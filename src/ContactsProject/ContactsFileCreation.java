@@ -10,6 +10,10 @@ import java.util.List;
 
 public class ContactsFileCreation {
 
+    private static List<String> contactsNameList = Arrays.asList("Austin", "Marc", "Thomas");
+    private static List<String> contactsNumberList = Arrays.asList("850-483-3849", "484-338-3203", "394-392-9303");
+
+
 public static void ContactsFileCreate () throws IOException {
         String newDirectory = "data";
         String newFile = "data/contacts.txt";
@@ -20,12 +24,15 @@ public static void ContactsFileCreate () throws IOException {
         } else {
             System.out.println("Path already exists in project.");
         }
-        List<String> contactsNameList = Arrays.asList("Austin", "Marc", "Thomas");
-        List<String> contactsNumberList = Arrays.asList("850-483-3849", "484-338-3203", "394-392-9303");
+
 
         Path filePath = Paths.get("./data", "contacts.txt");
 
         Files.write(filePath, contactsNameList);
         Files.write(filePath, contactsNumberList, StandardOpenOption.APPEND);
+    }
+
+    public static List<String> getContactNameList(){
+        return contactsNameList;
     }
 }
