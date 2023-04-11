@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.nio.file.Files.readAllLines;
+
 public class ContactsFileCreation {
 
-    private static List<String> contactsNameList =new ArrayList<>(Arrays.asList("Austin", "Marc", "Thomas"));
-    private static List<String> contactsNumberList = new ArrayList<>(Arrays.asList("850-483-3849", "484-338-3203", "394-392-9303"));
+
+    private static List<String> contactsNameList =new ArrayList<>();
+    private static List<String> contactsNumberList = new ArrayList<>();
 
 
 public static void ContactsFileCreate () throws IOException {
@@ -29,9 +32,16 @@ public static void ContactsFileCreate () throws IOException {
 
         Path filePath = Paths.get("./data", "contacts.txt");
 
-        Files.write(filePath, contactsNameList);
-        Files.write(filePath, contactsNumberList, StandardOpenOption.APPEND);
+
+        Files.readAllLines(filePath);
+
+
+         //Files.write(filePath, contactsNameList);
+        //Files.write(filePath, contactsNumberList, StandardOpenOption.APPEND);
     }
+
+
+
 
     public static List<String> getContactNameList(){
         return contactsNameList;
@@ -40,4 +50,7 @@ public static void ContactsFileCreate () throws IOException {
     public static List<String> getContactNumberList(){
         return contactsNumberList;
     }
+
+
+
 }

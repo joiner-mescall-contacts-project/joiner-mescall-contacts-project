@@ -11,28 +11,18 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        ContactsFileCreation.ContactsFileCreate();
 
+        ContactsFileCreation.ContactsFileCreate();
 
         ShowAll.showAllContacts();
 
-        //Input input = new Input();
-//        System.out.println("Enter name/number");
-//        Scanner myScanner = new Scanner(System.in);
-//        String user = myScanner.nextLine();
-//
-//
-//        contactsNameList.add(user);
-//        user = myScanner.nextLine();
-//        contactsNumberList.add(user);
-
-
-//        System.out.println(contactsNameList);
-//        System.out.println(contactsNumberList);
 
         //nameSearch method
 
         //addNew method
+
+        AddNew.addNewInfo();
+
 
 
         //showAll method
