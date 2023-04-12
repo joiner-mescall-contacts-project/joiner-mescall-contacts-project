@@ -42,6 +42,9 @@ public class DeleteContact {
     }
 
     private static void loadContacts() throws IOException {
+        //clearing duplication of contacts
+        contactsNameList.clear();
+        contactsNumberList.clear();
         Path filePath = Paths.get(contactFilePath);
 
         // Read the Files existing information
