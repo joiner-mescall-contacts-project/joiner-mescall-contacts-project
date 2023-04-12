@@ -12,6 +12,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //creates FILE and PATH
+
+
         ContactsFileCreation.ContactsFileCreate();
 
 
@@ -40,16 +42,43 @@ public class Main {
 
                     myScanner.nextLine();
 
-                    System.out.println("Enter Name to add: ");
-                    String userName = myScanner.nextLine();
+
+                    boolean nameExist = true;
+                    while(nameExist) {
+                        System.out.println("Enter Name to add, or type in 'back' to return to the main menu.");
+                        String userName = myScanner.nextLine();
 
 
-                    System.out.println("Enter phone number to add: ");
-                    String userNum = myScanner.nextLine();
-
-                    AddNew.addContact(userName, userNum);
+                        // if statement that checks for copies
+                        if (ContactsFileCreation.getContactNameList().contains(userName)) {
+                            nameExist = true;
+                            System.out.println("That Name Already Exists!");
+                            System.out.println("Try Again!");
+                        } else if (userName.equalsIgnoreCase("back")) {
+                            System.out.println("Returning to main menu...");
+                            nameExist = false;
+                        } else {
+                            boolean numValid = true;
+                            while(numValid) {
+                                System.out.println("Enter phone number for " + userName + ": ");
+                                String userNum = myScanner.nextLine();
+                                if (userNum.length() == 7 || userNum.length() == 10 || userNum.length() == 11) {
+                                    System.out.println("top test");
+                                    AddNew.addContact(userName, userNum);
+                                    System.out.println("You Have added '" + userName + "' with a phone number of '" + userNum + "'.");
+                                    numValid = false;
+                                    nameExist = false;
+                                    System.out.println("bottom test");
+                                } else {
+                                    System.out.println("Invalid Number.");
+                                    System.out.println("Enter in a number either 7, 10, or 11 numbers long. (no symbols)");
+                                }
+                            }
+                        }
+                    }
                     break;
                 case 3:
+                    //search contacts
                     System.out.println("Searching Contact");
                     String search = searchScanner.nextLine();
                     NameSearch.searchContact(search);
@@ -59,10 +88,6 @@ public class Main {
                     System.out.println("Deleting Contact");
                     String deleteInput = deleteScanner.nextLine();
                     DeleteContact.deleteContact(deleteInput);
-<<<<<<< HEAD
-=======
-
->>>>>>> 48459ae2922ba8985ee508b60b188c521afd6a35
                     break;
                 case 5:
                     System.out.println("Thank You...GoodBye!");
