@@ -62,6 +62,7 @@ public class Main {
                 case 4:
                     System.out.println("Deleting Contact");
                     String deleteInput = deleteScanner.nextLine();
+                    DeleteContact.deleteContact(deleteInput);
 
                     break;
                 case 5:
