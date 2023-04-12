@@ -54,6 +54,8 @@ public class Main {
                             nameExist = true;
                             System.out.println("That Name Already Exists!");
                             System.out.println("Try Again!");
+                        } else if (userName.equalsIgnoreCase("") || userName.length() <= 1) {
+                            System.out.println("Not a valid Name.");
                         } else if (userName.equalsIgnoreCase("back")) {
                             System.out.println("Returning to main menu...");
                             nameExist = false;
@@ -63,12 +65,10 @@ public class Main {
                                 System.out.println("Enter phone number for " + userName + ": ");
                                 String userNum = myScanner.nextLine();
                                 if (userNum.length() == 7 || userNum.length() == 10 || userNum.length() == 11) {
-                                    System.out.println("top test");
                                     AddNew.addContact(userName, userNum);
                                     System.out.println("You Have added '" + userName + "' with a phone number of '" + userNum + "'.");
                                     numValid = false;
                                     nameExist = false;
-                                    System.out.println("bottom test");
                                 } else {
                                     System.out.println("Invalid Number.");
                                     System.out.println("Enter in a number either 7, 10, or 11 numbers long. (no symbols)");

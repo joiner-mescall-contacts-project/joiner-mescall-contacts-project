@@ -41,7 +41,7 @@ public class DeleteContact {
         System.out.println("Contact deleted successfully.");
     }
 
-    private static void loadContacts() throws IOException {
+    public static void loadContacts() throws IOException {
         //clearing duplication of contacts
         contactsNameList.clear();
         contactsNumberList.clear();
