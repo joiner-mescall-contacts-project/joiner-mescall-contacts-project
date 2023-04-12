@@ -3,6 +3,7 @@ package ContactsProject;
 import java.util.List;
 
 public class NameSearch extends Main{
+
     public static void searchContact(String searchName) {
         boolean contactNameFound = false;
         for (int i = 0; i < ContactsFileCreation.getContactNameList().size(); i++) {
