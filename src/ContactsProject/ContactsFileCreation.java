@@ -33,9 +33,15 @@ public class ContactsFileCreation {
 
         // looping by two since the name and number make one person and the for loop can be used to
         // call or pull on a certain this inside
+        //String hyphen; //<-- variable for replacing nums
         for (int i = 0; i < lines.size(); i += 2) {
             contactsNameList.add(lines.get(i));
             contactsNumberList.add(lines.get(i + 1));
+            // if the number meets this set of requirements
+//            if(contactsNumberList.size() == 9) {
+//                //replace said number with a copy of itself but with hyphens at certain indexes
+//                hyphen = contactsNumberList.replaceAll("(\\d{3})(\\d{3}),");
+//            }
         }
     }
 
