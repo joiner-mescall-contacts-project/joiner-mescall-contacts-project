@@ -17,6 +17,7 @@ public class ContactsFileCreation {
     private static List<String> contactsNameList = new ArrayList<>();
     private static List<String> contactsNumberList = new ArrayList<>();
 
+
     public static void ContactsFileCreate() throws IOException {
         String newDirectory = "data";
         Path filePath = Paths.get(contactFilePath);

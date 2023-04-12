@@ -13,38 +13,59 @@ import java.util.List;
 import static java.nio.file.Files.readAllLines;
 
 public class DeleteContact {
-    //array list to replace the deleted item
-    private static List<String> deleteItem = new ArrayList<>();
-    //variable for connecting to file
     private static final String contactFilePath = "data/contacts.txt";
-    public static void deleteContact(String deleteName) throws IOException {
-        boolean contactNameFound = false;
-        for (int i = 0; i < ContactsFileCreation.getContactNameList().size(); i++) {
-            if (ContactsFileCreation.getContactNameList().get(i).equalsIgnoreCase(deleteName)) {
+    private static List<String> contactsNameList = new ArrayList<>();
+    private static List<String> contactsNumberList = new ArrayList<>();
 
-                //selecting item to be deleted: contact name
-                ContactsFileCreation.getContactNameList().remove(deleteName);
-                ContactsFileCreation.getContactNumberList().remove(i +1);
+    public static void deleteContact(String name) throws IOException {
 
-                //read
-                //manipulate
-                //rewrite
+        // Load the existing contacts
+        loadContacts();
 
-                //filling delete array
-                deleteItem.add("DELETE");
 
-                //rewriting to file without the selected contact
-                Files.write(Paths.get(contactFilePath),ContactsFileCreation.getContactNameList());
-
-                System.out.println(deleteName + " deleted");
-                contactNameFound = true;
-            }
+        // Find the index of the contact with the given name
+        int index = contactsNameList.indexOf(name);
+        if (index == -1) {
+            // Contact not found
+            System.out.println("Contact not found.");
+            return;
         }
-        if (!contactNameFound) {
-            System.out.printf("%n%s not found", deleteName);
+
+        // Remove the name and number from their respective lists
+        contactsNameList.remove(index);
+        contactsNumberList.remove(index);
+
+        // Rewrite the file with the updated contact list
+        saveNewContacts();
+
+        System.out.println("Contact deleted successfully.");
+    }
+
+    private static void loadContacts() throws IOException {
+        Path filePath = Paths.get(contactFilePath);
+
+        // Read the Files existing information
+        List<String> lines = Files.readAllLines(filePath);
+
+        // looping by two since the name and number make one person and the for loop can be used to
+        // call or pull on a certain this inside
+        for (int i = 0; i < lines.size(); i += 2) {
+            contactsNameList.add(lines.get(i));
+            contactsNumberList.add(lines.get(i + 1));
         }
     }
+
+    private static void saveNewContacts() throws IOException {
+        // Combine the names and numbers into a single list of strings
+        List<String> lines = new ArrayList<>();
+        for (int i = 0; i < contactsNameList.size(); i++) {
+            lines.add(contactsNameList.get(i));
+            lines.add(contactsNumberList.get(i));
+        }
+
+        // Write the list to the file
+        Path filePath = Paths.get(contactFilePath);
+        Files.write(filePath, lines, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+    }
+
 }
-
-
-
