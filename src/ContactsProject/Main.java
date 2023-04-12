@@ -59,6 +59,10 @@ public class Main {
                     System.out.println("Deleting Contact");
                     String deleteInput = deleteScanner.nextLine();
                     DeleteContact.deleteContact(deleteInput);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48459ae2922ba8985ee508b60b188c521afd6a35
                     break;
                 case 5:
                     System.out.println("Thank You...GoodBye!");
