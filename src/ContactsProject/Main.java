@@ -15,11 +15,6 @@ public class Main {
         ContactsFileCreation.ContactsFileCreate();
 
 
-
-
-
-
-
         Scanner myScanner = new Scanner(System.in);
         Scanner searchScanner = new Scanner(System.in);
         Scanner deleteScanner = new Scanner(System.in);
@@ -60,9 +55,10 @@ public class Main {
                     NameSearch.searchContact(search);
                     break;
                 case 4:
+                    //delete method
                     System.out.println("Deleting Contact");
                     String deleteInput = deleteScanner.nextLine();
-
+                    DeleteContact.deleteContact(deleteInput);
                     break;
                 case 5:
                     System.out.println("Thank You...GoodBye!");
@@ -73,31 +69,5 @@ public class Main {
             }
 
         }
-
-
-
-        int day = 4;
-        switch (day) {
-            case 1:
-                System.out.println("");
-                break;
-            case 2:
-                System.out.println("");
-                break;
-            case 3:
-                System.out.println("");
-                break;
-            case 4:
-                System.out.println("");
-                break;
-            case 5:
-                System.out.println("");
-                break;
-            case 6:
-                System.out.println("");
-                break;
-
-        }
-// Outputs "Thursday" (day 4)
     }
 }
