@@ -15,20 +15,66 @@ public class Main {
         ContactsFileCreation.ContactsFileCreate();
 
 
-        // ADD new Contact
+
+
+
+
+
         Scanner myScanner = new Scanner(System.in);
+        Scanner searchScanner = new Scanner(System.in);
+        Scanner deleteScanner = new Scanner(System.in);
 
-        System.out.println("Enter Name to add: ");
-        String userName = myScanner.nextLine();
-
-        System.out.println("Enter phone number to add: ");
-        String userNum = myScanner.nextLine();
-
-        AddNew.addContact(userName, userNum);
+        //menu
 
 
-        // Show ALL Contacts
-        ShowAll.showAllContacts();
+        int menuNum = 0;
+        while (menuNum != 5) {
+            System.out.printf("%nEnter an option (1, 2, 3, 4 or 5): %n1. Show All Contacts%n2. Add new contact%n3. Search for a Contact%n4. Delete a contact%n5. Close Menu%n");
+
+            menuNum = myScanner.nextInt();
+
+            switch (menuNum) {
+                case 1:
+                    // Show ALL Contacts
+                    System.out.println("Showing All Contacts");
+                    ShowAll.showAllContacts();
+                    break;
+                case 2:
+                    // ADD new Contact
+                    System.out.println("Adding New Contact");
+
+                    myScanner.nextLine();
+
+                    System.out.println("Enter Name to add: ");
+                    String userName = myScanner.nextLine();
+
+
+                    System.out.println("Enter phone number to add: ");
+                    String userNum = myScanner.nextLine();
+
+                    AddNew.addContact(userName, userNum);
+                    break;
+                case 3:
+                    System.out.println("Searching Contact");
+                    String search = searchScanner.nextLine();
+                    NameSearch.searchContact(search);
+                    break;
+                case 4:
+                    System.out.println("Deleting Contact");
+                    String deleteInput = deleteScanner.nextLine();
+
+                    break;
+                case 5:
+                    System.out.println("Thank You...GoodBye!");
+                    break;
+                default:
+                    System.out.println("This was not a valid input. Try Again!");
+                    break;
+            }
+
+        }
+
+
 
     }
 }

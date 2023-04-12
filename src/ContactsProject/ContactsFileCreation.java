@@ -36,15 +36,12 @@ public class ContactsFileCreation {
             contactsNameList.add(lines.get(i));
             contactsNumberList.add(lines.get(i + 1));
         }
-
     }
 
     public static List<String> getContactNameList() {
         return contactsNameList;
     }
-
     public static List<String> getContactNumberList() {
         return contactsNumberList;
     }
-
 }
