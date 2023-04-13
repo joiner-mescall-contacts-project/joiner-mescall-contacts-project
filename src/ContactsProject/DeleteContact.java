@@ -36,7 +36,7 @@ public class DeleteContact {
         // Rewrite the file with the updated contact list
         saveNewContacts();
 
-        System.out.println("Contact deleted successfully.");
+        System.out.println("Contact will be deleted on close.");
     }
 
     public static void loadContacts() throws IOException {
