@@ -1,6 +1,5 @@
 package ContactsProject;
 
-import java.util.List;
 
 public class NameSearch extends Main{
 

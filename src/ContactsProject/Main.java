@@ -1,29 +1,21 @@
 package ContactsProject;
 
-
 import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         //creates FILE and PATH
-
-
         ContactsFileCreation.ContactsFileCreate();
 
-
+        //scanner
         Scanner myScanner = new Scanner(System.in);
         Scanner searchScanner = new Scanner(System.in);
         Scanner deleteScanner = new Scanner(System.in);
 
         //menu
-
-
         int menuNum = 0;
         while (menuNum != 5) {
             System.out.printf("%nEnter an option (1, 2, 3, 4 or 5): %n1. Show All Contacts%n2. Add new contact%n3. Search for a Contact%n4. Delete a contact%n5. Close Menu%n");

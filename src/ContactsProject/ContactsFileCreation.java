@@ -51,4 +51,8 @@ public class ContactsFileCreation {
     public static List<String> getContactNumberList() {
         return contactsNumberList;
     }
+
+    public static void setContactNumberList(List<String> contactsNumberList) {
+        ContactsFileCreation.contactsNumberList = contactsNumberList;
+    }
 }
